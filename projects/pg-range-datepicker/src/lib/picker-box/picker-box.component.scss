@@ -1,0 +1,91 @@
+.picker-container {
+    width: 320px;
+    height: 98.7%;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: -3px;
+    margin-left: 2px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 21px;
+    font-weight: 600;
+    margin-top: 5px;
+    padding-top: 5px;
+
+    .previous-btn {
+        width: 25px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .next-btn {
+        width: 25px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+}
+
+.days-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 10px;
+}
+
+.days-cell {
+    width: 25px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 9px;
+}
+
+.days-cell:hover:not(.highlight-today):not(.highlight-selected):not(.highlight-range) {
+    background-color: #ccc;
+    border-radius: 100%;
+}
+
+.highlight-today:not(.highlight-range):not(.highlight-selected) {
+    background-color: rgb(202 245 202);
+    border-radius: 100%;
+}
+
+.highlight-selected {
+    background-color: aqua;
+    border-radius: 100%;
+}
+
+.highlight-range {
+    background-color: aqua;
+}
+
+.highlight-range-start {
+    background-color: aqua;
+    border-radius: 100% 0 0 100%;
+}
+
+.highlight-range-end {
+    background-color: aqua;
+    border-radius: 0 100% 100% 0;
+}
+
+.highlight-range-single {
+    background-color: aqua;
+    border-radius: 100%;
+}
+
+.disable-dates {
+    cursor: default;
+    color: #939393;
+}
+
+.disable-dates:hover {
+    background-color: transparent !important;
+}

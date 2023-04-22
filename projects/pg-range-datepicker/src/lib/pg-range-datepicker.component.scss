@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 646px;
+    height: 340px;
+    background-color: black;
+    border-radius: 12px;
+    position: absolute;
+}
+
+.container-single {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 324px;
+    height: 340px;
+    background-color: black;
+    border-radius: 12px;
+    position: absolute;
+}
+
+.date-input {
+    width: 200px;
+    height: 35px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.date-text-box {
+    width: calc(100% - 30px);
+    height: 35px;
+    position: relative;
+}
+
+.date-text-single {
+    position: absolute;
+    padding: 9px 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.date-text-range {
+    position: absolute;
+    padding: 10px 5px;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.clear-date {
+    position: absolute;
+    padding: 6px 7px 3px;
+    font-size: 22px;
+    font-family: sans-serif;
+    transform: scaleX(1.2);
+}

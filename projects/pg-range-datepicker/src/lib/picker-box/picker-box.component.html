@@ -1,0 +1,19 @@
+<div class="picker-container">
+    <div class="header">
+      <div class="previous-btn" (click)="getPreviousMonth()">
+          <img *ngIf="showPreviousMonthBtn" src="../assets/images/angle-double-left-solid.svg" alt="previous">
+      </div>
+      <div>{{getMonthFromNumber(currentMonth)}} {{currentYear}}</div>
+      <div class="next-btn" (click)="getNextMonth()">
+          <img *ngIf="showNextMonthBtn" src="../assets/images/angle-double-right-solid.svg" alt="next">
+      </div>
+  </div>
+  <div>
+    <div class="days-container" style="font-weight: bold;">
+      <div class="days-cell" *ngFor="let day of weekdays">{{day[0]}}</div>
+    </div>
+    <div class="days-container">
+      <div class="days-cell cursor-pointer" [ngClass]="[isTodayDate(i+1) ? 'highlight-today' : '', isSelectedDate(i+1) ? 'highlight-selected' : '', isSelectedDateEnd(i+1) ? 'highlight-selected' : '', isInRange(i+1) ? 'highlight-range' : '', isInRange(i+1) && isSelectedDate(i+1) ? 'highlight-range-start' : '', isInRange(i+1) && isSelectedDateEnd(i+1) ? 'highlight-range-end' : '', isInRange(i+1) && selectedDate && selectedDateEnd && selectedDate.toString() == selectedDateEnd.toString() ? 'highlight-range-single' : '', disableDate(i+1) ? 'disable-dates' : '']" *ngFor="let date of [].constructor(lastDayOfMonth); let i=index" [ngStyle]="i==0 ? {'grid-column-start': startDay + 1} : {}" (click)="onDateSelect(i+1)">{{i+1}}</div>
+    </div>
+  </div>
+</div>

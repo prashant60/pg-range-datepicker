@@ -1,0 +1,50 @@
+<div #dateInput id="date-picker-id" class="date-input cursor-pointer" (click)="disabled ? $event.preventDefault() : toggleDatepicker()">
+    <div class="date-text-box">
+      <span class="date-text-single" *ngIf="!selectedDate">mm/dd/yyyy</span>
+      <span class="date-text-single" *ngIf="selectedDate && !selectedDateEnd">{{selectedDate | date:'MM/dd/yyyy'}}</span>
+      <span class="date-text-range" *ngIf="selectedDate && selectedDateEnd">{{selectedDate | date:'MM/dd/yyyy'}} - {{selectedDateEnd | date:'MM/dd/yyyy'}}</span>
+    </div>
+    <div>
+      <img *ngIf="!allowClear || (allowClear && !selectedDate)" style="width: 20px; padding: 6px 5px;" src="./assets/images/calendar-days-solid.svg" alt="datepicker">
+      <span *ngIf="(allowClear && selectedDate)" class="clear-date" (click)="selectedDate=selectedDateEnd=null">X</span>
+    </div>
+  </div>
+  
+  <div #datePicker id="date-picker-box" [ngClass]="displayTwoMonths ? 'container' : 'container-single'">
+    <div class="height-100">
+      <lib-picker-box 
+      [showPreviousMonthBtn]="true"
+      [showNextMonthBtn]="!displayTwoMonths"
+      [currentMonth]="currentMonth"
+      [currentYear]="currentYear"
+      [lastDayOfMonth]="lastDayOfCurrMonth"
+      [startDay]="currentStartDay"
+      [disablePastDates]="disablePastDates"
+      [minDate]="minDate"
+      [maxDate]="maxDate"
+      [disabledDates]="disabledDates"
+      [allowRange]="allowRange"
+      [(selectedDate)]="selectedDate"
+      [(selectedDateEnd)]="selectedDateEnd"
+      (fetchPreviousMonth)="getPreviousMonth()"
+      (fetchNextMonth)="getNextMonth()"
+      ></lib-picker-box>
+    </div>
+    <div class="height-100">
+      <lib-picker-box *ngIf="displayTwoMonths"
+      [showPreviousMonthBtn]="false"
+      [showNextMonthBtn]="true"
+      [currentMonth]="nextMonth"
+      [currentYear]="nextYear"
+      [lastDayOfMonth]="lastDayOfNextMonth"
+      [startDay]="nextStartDay"
+      [disablePastDates]="disablePastDates"
+      [disabledDates]="disabledDates"
+      [allowRange]="allowRange"
+      [(selectedDate)]="selectedDate"
+      [(selectedDateEnd)]="selectedDateEnd"
+      (fetchPreviousMonth)="getPreviousMonth()"
+      (fetchNextMonth)="getNextMonth()"
+      ></lib-picker-box>
+    </div>
+  </div>
