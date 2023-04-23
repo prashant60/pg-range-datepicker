@@ -7,5 +7,11 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "keywords": ["Date picker", "Date Range picker", "Angular Date picker", "2 months date picker", "Angular2+", "typescript"]
+  ,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prashant60/pg-range-datepicker"
   }
 }
